@@ -62,6 +62,16 @@ In the url `https://download.pytorch.org/whl/rocm7.1` please replace the `rocm7.
 
  > Now just wait for the installation to be finished and your `PyTorch` will be all set 🙂
 
+## How To Uninstall ?
+For Uninstalling please run these commands
+```bash
+source ~/venvs/myvenv/bin/activate
+pip uninstall torch torchvision torchaudio
+rm -rf ~/venvs
+rm -rf ~/tmp-pip
+```
+Again make sure to replace the `myenv` in the line number 1 with the actual virtual environment's name you wrote while creating it.
+
 ## Thanks for reading!
 Found any issues ? Make an issue then.
 Wanna contribute ? Make a pull request then!
