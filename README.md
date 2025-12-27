@@ -57,8 +57,9 @@ export TMPDIR=~/tmp-pip
 mkdir -p $TMPDIR 2>/dev/null
 pip install torch torchvision torchaudio \
   --index-url https://download.pytorch.org/whl/rocm7.1
+echo 'export TMPDIR=~/tmp-pip' >> ~/venvs/myvenv/bin/activate
 ```
-In the url `https://download.pytorch.org/whl/rocm7.1` please replace the `rocm7.1` with the actual rocm version you have as of the time.
+In the url `https://download.pytorch.org/whl/rocm7.1` please replace the `rocm7.1` with the actual rocm version you have as of the time and also replace the `myvenv` with the actual virtual environment's name.
 
  > Now just wait for the installation to be finished and your `PyTorch` will be all set 🙂
 
