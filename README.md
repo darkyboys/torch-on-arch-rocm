@@ -53,6 +53,8 @@ To install the pytorch on arch we will need to nightly build not the stable buil
 
 Please check the ROCm version you have and then run these commands to install the PyTorch
 ```bash
+export TMPDIR=~/tmp-pip
+mkdir -p $TMPDIR 2>/dev/null
 pip install torch torchvision torchaudio \
   --index-url https://download.pytorch.org/whl/rocm7.1
 ```
