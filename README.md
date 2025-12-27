@@ -10,4 +10,14 @@ Please copy and paste these commands to the terminal (Only on arch linux) to ins
 # Copy paste these to install pyenv
 sudo pacman -S pyenv
 ```
+And make sure to add these to the end of your shell file either in `~/.bashrc` or `~/.zshrc`
+```yaml
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
 
+To install the python 3.12.8 Run
+```bash
+
+```
