@@ -16,8 +16,51 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ```
+Then restart the terminal or reboot the system or simply run `source ~/.bashrc` to restart the shell
 
 To install the python 3.12.8 Run
 ```bash
-
+pyenv install 3.12.8
+pyenv local 3.12.8
 ```
+Then check the python's version by running `python --version` it should say something like `Python 3.12.8`.
+
+## Making venv
+We need `venv` to make a virtual environment for our pytorch because arch linux doesnot allows pip to install the system wide packages.
+So before we even make a venv we need to make sure that it is installed so you can simply run
+```bash
+sudo pacman -S --needed python python-virtualenv git base-devel
+```
+
+After installing the venv you can make a virtual environment by running.
+```bash
+python -m venv ~/venvs/myvenv
+```
+Please make sure to replace `myvenv` with the desired virtual environment's name.
+Then activate the virtual environment by running
+```bash
+source ~/venvs/myvenv/bin/activate
+```
+Again please replace `myvenv` with the actual virtual environment's name you wrote.
+Then run these basic commands
+```bash
+pip install --upgrade pip setuptools wheel
+```
+These will install/upgrade the core tools we will need to install the pip packages.
+
+## Installing Actual PyTorch
+To install the pytorch on arch we will need to nightly build not the stable build and the reason is that arch linux is a rolling release distro. So if you try to install the stable version on arch for ROCm then it won't be satisfied with your system and to ensure the satisfaction of packages we need to use the nightly build specific to the ROCm version you have.
+
+Please check the ROCm version you have and then run these commands to install the PyTorch
+```bash
+pip install torch torchvision torchaudio \
+  --index-url https://download.pytorch.org/whl/rocm7.1
+```
+In the url `https://download.pytorch.org/whl/rocm7.1` please replace the `rocm7.1` with the actual rocm version you have as of the time.
+
+ > Now just wait for the installation to be finished and your `PyTorch` will be all set 🙂
+
+## Thanks for reading!
+Found any issues ? Make an issue then.
+Wanna contribute ? Make a pull request then!
+In the end ? Have a nice time.
